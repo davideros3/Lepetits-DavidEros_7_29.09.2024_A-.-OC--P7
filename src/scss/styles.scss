@@ -1,62 +1,32 @@
-// Override Bootstrap's Sass default variables
-//
-// Nearly all variables in Bootstrap are written with the `!default` flag.
-// This allows you to override the default values of those variables before
-// you import Bootstrap's source Sass files.
-//
-// Overriding the default variable values is the best way to customize your
-// CSS without writing _new_ styles. For example, you can either change
-// `$body-color` or write more CSS that override's Bootstrap's CSS like so:
-// `body { color: red; }`.
-
-
-//
-// Bring in Bootstrap
-//
-
-// Option 1
-//
 // Import all of Bootstrap's CSS
-
 // @import "bootstrap/scss/bootstrap";
 
-// Option 2
-//
-// Place variable overrides first, then import just the styles you need. Note that some stylesheets are required no matter what.
-
-// Toggle global options
-$enable-gradients: true;
-$enable-shadows: true;
-
-$offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
-
-// Include functions first
-@import "bootstrap/scss/functions";
+@import "bootstrap/scss/bootstrap";
 
 // Customize some defaults
 $body-color: #333;
 $body-bg: #fff;
-$border-radius: .4rem;
+$border-radius: 0.4rem;
 $success: #7952b3;
 
 // Required
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/variables-dark";
-@import "bootstrap/scss/maps";
-@import "bootstrap/scss/mixins";
-@import "bootstrap/scss/utilities";
-@import "bootstrap/scss/root";
-@import "bootstrap/scss/reboot";
+// @import "bootstrap/scss/variables";
+// @import "bootstrap/scss/variables-dark";
+// @import "bootstrap/scss/maps";
+// @import "bootstrap/scss/mixins";
+// @import "bootstrap/scss/utilities";
+// @import "bootstrap/scss/root";
+// @import "bootstrap/scss/reboot";
 
-@import "bootstrap/scss/type";
+// @import "bootstrap/scss/type";
 // @import "bootstrap/scss/images";
-@import "bootstrap/scss/containers";
-@import "bootstrap/scss/grid";
+// @import "bootstrap/scss/containers";
+// @import "bootstrap/scss/grid";
 // @import "bootstrap/scss/tables";
 // @import "bootstrap/scss/forms";
-@import "bootstrap/scss/buttons";
-@import "bootstrap/scss/transitions";
-@import "bootstrap/scss/dropdown";
+// @import "bootstrap/scss/buttons";
+// @import "bootstrap/scss/transitions";
+// @import "bootstrap/scss/dropdown";
 // @import "bootstrap/scss/button-group";
 // @import "bootstrap/scss/nav";
 // @import "bootstrap/scss/navbar"; // Requires nav
@@ -68,29 +38,322 @@ $success: #7952b3;
 // @import "bootstrap/scss/alert";
 // @import "bootstrap/scss/progress";
 // @import "bootstrap/scss/list-group";
-@import "bootstrap/scss/close";
+// @import "bootstrap/scss/close";
 // @import "bootstrap/scss/toasts";
-@import "bootstrap/scss/modal"; // Requires transitions
-// @import "bootstrap/scss/tooltip";
-@import "bootstrap/scss/popover";
-// @import "bootstrap/scss/carousel";
-// @import "bootstrap/scss/spinners";
-@import "bootstrap/scss/offcanvas"; // Requires transitions
-// @import "bootstrap/scss/placeholders";
+// // @import "bootstrap/scss/modal"; // Requires transitions
+// // @import "bootstrap/scss/tooltip";
+// @import "bootstrap/scss/popover";
+// // @import "bootstrap/scss/carousel";
+// // @import "bootstrap/scss/spinners";
+// @import "bootstrap/scss/offcanvas"; // Requires transitions
+// // @import "bootstrap/scss/placeholders";
 
 // Helpers
 // @import "bootstrap/scss/helpers";
 
 // Utilities
-@import "bootstrap/scss/utilities/api";
+// @import "bootstrap/scss/utilities/api";
 
 
-//
-// Custom styles
-//
-
-@import "icon-list";
 
 body {
-  padding: 1.5rem;
+  box-sizing: border-box;
+  font-family: Lato;
+ 
 }
+// Header 
+
+.logo {
+  width: 268px;
+}
+
+header {
+  
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+
+
+// ********************************************************************************Search Bar***********************************************************************
+
+
+.search-box {
+      width: 100%;
+      background-color: rgba(255, 255, 255, .5);
+      height: 150px;
+      display: flex;
+      justify-content: center;
+
+      .search-container {
+          background-color: #E7E7E7;
+          border: 32px;
+          font-size: 1.5em;  
+          position: relative;
+          top: 25%;
+          width: 80%;
+          height: 70px;
+        
+        i {
+          position: absolute;
+          display: block;
+          padding: 20px 10px;
+        }
+        
+        input {
+          background-color: transparent;
+          border-width: 0px;
+          border: none;
+          width: 93%;
+          padding: 15px;
+          margin-left: 40px;
+          
+  
+        
+        }
+          
+      }
+  }
+
+    
+   
+    //************************************************************************Cards ********************************************************************************  
+    .card-img-top {
+      background-color: rgb(199, 189, 189);
+      height: 10em;
+    }
+
+    .card-body {
+    display: grid;
+    grid-template-columns: auto auto ;
+    gap: 10px;
+    padding: 1em;
+    background-color: rgb(232, 232, 232);
+    
+    };
+
+   
+
+    .cardfOfrecepi {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      margin-top: 2em;
+      margin-inline: 9.5em 6em ;
+      margin-bottom: 3em;
+
+      
+     
+
+    }
+
+    .card {
+      width: 20rem; 
+      height: 28rem;
+
+    }
+
+  
+
+  
+
+    // **********************************************Dropowns***************************************************************************************************************
+    .tag {
+      margin: 0px 60px;
+      overflow: hidden;
+      border-radius: 5px;
+      display: inline-block;
+      white-space: nowrap;
+      width: 100%;
+      position: absolute;
+      z-index: 2;
+      & .dropdown {
+        float: left;
+        overflow: hidden;
+        font-size: 16px;
+        margin: 20px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        width: auto;
+        min-height: 66px;
+        & .dropdown-menu {
+          font-size: 16px;
+          font-weight: bold;
+          border: none;
+          outline: none;
+          padding: 14px 16px;
+          background-color: inherit;
+          width: 95%;
+          height: 65px;
+          color: red;
+          cursor: pointer;
+          
+        }
+        &:hover {
+          & em {
+            transform: rotate(-180deg);
+            transition: 0.5s ease-in-out;
+          }
+          & .row {
+            opacity: 1;
+            width: auto;
+            & .col {
+              height: auto;
+              padding: 15px;
+              opacity: 1;
+              transition: 0.5s ease-in-out;
+              transform-style: preserve-3d;
+            }
+          }
+        }
+        & em {
+          position: absolute;
+          margin: 23px 0 0 -10px;
+          color: white;
+          transform: rotate(0deg);
+          transition: 0.5s ease-in-out;
+        }
+        & .row {
+          margin-top: -30px;
+          opacity: 0;
+          width: min-content;
+    
+          & .col {
+            float: left;
+            width: 33.33%;
+            list-style-type: none;
+            display: flex;
+            flex-flow: column nowrap;
+            transition: 0.5s ease-in-out;
+            transform-style: preserve-3d;
+            height: 0px;
+            padding: 0px;
+            opacity: 0;
+            & li {
+              color: white;
+              padding: 10px;
+              text-decoration: none;
+              display: inline-block;
+              text-align: left;
+            }
+            & li:hover {
+              font-weight: bolder;
+              text-shadow: 2px 2px 2px black;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+    .dropdown .dropdown-menu {
+      display: none;
+    }
+    
+    .dropdown.show .dropdown-menu {
+      display: none;
+    }
+    
+    .dropdown:hover .dropdown-menu {
+      display: block;
+      transition: 0.5s ease-in-out;
+    }
+    
+    .dropdown:hover .dropdown-toggle::after {
+      display: none;
+    }
+
+    .placeOfDropdowns {
+      display: flex;
+      margin-left: 9.5em;
+      
+    }
+    
+    .firstButton {
+      button {
+      background:  #3483f7;
+      border: solid;
+      height: 3em;
+      width: 8em;
+      &:hover {
+        background-color: #0a68f5;
+        border: solid;
+
+      }
+      &:focus{
+        background-color: #0a68f5;
+        border: solid;
+      }
+      }
+      .dropdown-menu {
+        background-color: #0a68f5;
+        color: #fff;
+        &:hover {
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 250ms ease-in
+          
+
+        }
+        &:hover::after{
+          transform: scaleX(1);
+  
+          transform-origin: right;
+
+        }
+        input {
+          background-color: #0a68f5;
+          color: #ffff;
+          text-decoration: none;
+          border: none;
+          :active{
+            border: none;
+          }
+        }
+        a{
+          color:#fff
+        }
+      }
+      
+
+    }
+
+    .secondButton {
+      background-color: #66daa4;
+      border: solid;
+      height: 3em;
+      width: 8em;
+      &:hover {
+        background-color: #46d291;
+        border: solid;
+      }
+    }
+
+    .thridButton {
+      background-color: #ed6454;
+      border: solid;
+      height: 3em;
+      width: 8em;
+      &:hover{
+        background-color: #e9422f ;
+        border: solid;
+        
+      }
+        
+        
+      }
+
+    
+
+  
+
+      
+      
+    
+
+    .dropdown-menu:focus {
+      background-color: #333;
+    }
+
+
+    
