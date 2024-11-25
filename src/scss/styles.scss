@@ -85,6 +85,7 @@ header {
       height: 150px;
       display: flex;
       justify-content: center;
+      border: none;
 
       .search-container {
           background-color: #E7E7E7;
@@ -94,6 +95,7 @@ header {
           top: 25%;
           width: 80%;
           height: 70px;
+          border: none;
         
         i {
           position: absolute;
@@ -108,7 +110,11 @@ header {
           width: 93%;
           padding: 15px;
           margin-left: 40px;
-          
+          border: none;
+          outline: none;
+        &input[type=text]:focus {
+          border: none;
+        }      
   
         
         }
@@ -127,8 +133,6 @@ header {
     .card-body {
     display: grid;
     grid-template-columns: auto auto ;
-    gap: 10px;
-    padding: 1em;
     background-color: rgb(232, 232, 232);
     
     };
@@ -138,9 +142,8 @@ header {
     .cardfOfrecepi {
       display: grid;
       grid-template-columns: auto auto auto;
-      margin-top: 2em;
-      margin-inline: 9.5em 6em ;
-      margin-bottom: 3em;
+      padding: 2em 9.5em 0em 9.5em;
+      gap: 50px;
 
       
      
@@ -148,175 +151,157 @@ header {
     }
 
     .card {
-      width: 20rem; 
-      height: 28rem;
+     width: auto;
+     height: 22em;
 
     }
+
+    .card-title {
+      font-size: 1em;
+    }
+    .ingredients-list {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      
+    }
+
+    .card-text {
+      overflow: hidden;
+      position: relative;
+      display: inline-block;
+      word-wrap: break-word;
+      max-height: 8em; /* (Number of lines you want visible) * (line-height) */
+      line-height: 1em;
+      text-align:justify;
+      max-width: 11em;
+      padding-left: 2em;
+      &::after {
+        content: "...";
+      }
+      
+    }
+    .cardTime {
+      padding-left: 4em;
+    }
+
+    
 
   
 
   
 
     // **********************************************Dropowns***************************************************************************************************************
-    .tag {
-      margin: 0px 60px;
-      overflow: hidden;
-      border-radius: 5px;
-      display: inline-block;
-      white-space: nowrap;
-      width: 100%;
-      position: absolute;
-      z-index: 2;
-      & .dropdown {
-        float: left;
-        overflow: hidden;
-        font-size: 16px;
-        margin: 20px;
-        border: none;
-        outline: none;
-        border-radius: 5px;
-        width: auto;
-        min-height: 66px;
-        & .dropdown-menu {
-          font-size: 16px;
-          font-weight: bold;
-          border: none;
-          outline: none;
-          padding: 14px 16px;
-          background-color: inherit;
-          width: 95%;
-          height: 65px;
-          color: red;
-          cursor: pointer;
-          
-        }
-        &:hover {
-          & em {
-            transform: rotate(-180deg);
-            transition: 0.5s ease-in-out;
-          }
-          & .row {
-            opacity: 1;
-            width: auto;
-            & .col {
-              height: auto;
-              padding: 15px;
-              opacity: 1;
-              transition: 0.5s ease-in-out;
-              transform-style: preserve-3d;
-            }
-          }
-        }
-        & em {
-          position: absolute;
-          margin: 23px 0 0 -10px;
-          color: white;
-          transform: rotate(0deg);
-          transition: 0.5s ease-in-out;
-        }
-        & .row {
-          margin-top: -30px;
-          opacity: 0;
-          width: min-content;
     
-          & .col {
-            float: left;
-            width: 33.33%;
-            list-style-type: none;
-            display: flex;
-            flex-flow: column nowrap;
-            transition: 0.5s ease-in-out;
-            transform-style: preserve-3d;
-            height: 0px;
-            padding: 0px;
-            opacity: 0;
-            & li {
-              color: white;
-              padding: 10px;
-              text-decoration: none;
-              display: inline-block;
-              text-align: left;
-            }
-            & li:hover {
-              font-weight: bolder;
-              text-shadow: 2px 2px 2px black;
-              cursor: pointer;
-            }
-          }
-        }
-      }
-    }
-    .dropdown .dropdown-menu {
-      display: none;
-    }
+   
     
-    .dropdown.show .dropdown-menu {
-      display: none;
-    }
+   
     
-    .dropdown:hover .dropdown-menu {
-      display: block;
-      transition: 0.5s ease-in-out;
-    }
-    
-    .dropdown:hover .dropdown-toggle::after {
-      display: none;
-    }
+.dropdown:hover .dropdown-menu {
+display: block;
 
-    .placeOfDropdowns {
-      display: flex;
-      margin-left: 9.5em;
-      
-    }
+}
     
-    .firstButton {
-      button {
-      background:  #3483f7;
-      border: solid;
-      height: 3em;
-      width: 8em;
-      &:hover {
-        background-color: #0a68f5;
-        border: solid;
-
-      }
-      &:focus{
-        background-color: #0a68f5;
-        border: solid;
-      }
-      }
-      .dropdown-menu {
-        background-color: #0a68f5;
-        color: #fff;
-        &:hover {
-          transform: scaleX(0);
-          transform-origin: left;
-          transition: transform 250ms ease-in
-          
-
-        }
-        &:hover::after{
-          transform: scaleX(1);
   
-          transform-origin: right;
 
-        }
-        input {
-          background-color: #0a68f5;
-          color: #ffff;
-          text-decoration: none;
-          border: none;
-          :active{
-            border: none;
-          }
-        }
-        a{
-          color:#fff
-        }
-      }
-      
+.placeOfDropdowns {
+display: flex;
+margin-left: 9.5em;
+z-index: 1;
+white-space: nowrap;
 
-    }
+}
+    
+
+
+.search-fieldIngrediens {
+color: #E7E7E7;
+border: none;
+font-size: 1em;
+padding-left: 1em;
+border: 0;
+outline: none;
+width: auto;
+
+}
+.firstButton button {
+  background: #3483f7;
+  border: solid;
+  height: 3em;
+  width: 8em;
+  overflow: auto;
+  outline: none;
+  float: right;
+  transition: 0.5s ease-in-out;
+}
+
+.firstButton button:hover {
+  background-color: #0a68f5;
+  border: solid;
+  float: left;
+}
+
+
+.firstButton button:hover em {
+  transform: rotate(-180deg);
+  transition: 0.5s ease-in-out;
+}
+
+.firstButton .dropdown-menu:hover {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-gap: 5px;
+};
+
+.firstButton .dropdown-menu {
+  background-color: #0a68f5;
+  color: #fff;
+  width: 810px;
+  float: right;
+  transition: transform .2s;
+ 
+}
+
+.firstButton .dropdown-menu input {
+  background-color: #0a68f5;
+  color: #ffff;
+  text-decoration: none;
+  border: none;
+}
+
+.firstButton .dropdown-menu a {
+  color: #fff;
+  font-size: 0.7em;
+  max-width: 10px;
+  text-overflow: ellipsis;
+}
+
+.firstButton .dropdown-menu input::placeholder {
+  color: #fff;
+}
+
+.firstButton .dropdown-menu a:hover {
+
+  background-color:  #0a68f5;
+  
+  text-shadow: 2px 2px 2px black;
+
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// second button 
 
     .secondButton {
       background-color: #66daa4;
@@ -344,7 +329,11 @@ header {
       }
 
     
-
+      .ingredients-list {
+        display: block;
+        
+        font-size: 10px;
+      }
   
 
       
@@ -355,5 +344,86 @@ header {
       background-color: #333;
     }
 
+    // tag button 
 
+    .output {
+      margin-left: 9.5em;
+    }
     
+
+    @mixin button-styles($bg-color, $hover-color) {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-bottom: 0.2em;
+      margin-right: 0.2em;
+      background-color: $bg-color;
+      color: #FFFFFF;
+    
+      &:hover {
+        background-color: $hover-color;
+      }
+    }
+    
+    .btn {
+      &.ingredientsTag {
+        @include button-styles(#3483f7, #0a68f5);
+      }
+    
+      &.applianceTag {
+        @include button-styles(#66daa4, #46d291);
+      }
+    
+      &.ustensilsTag {
+        @include button-styles(#ed6454, #e9422f);
+      }
+    
+      .button-close-container {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        border: 2px solid #FFFFFF;
+        color: #FFFFFF;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        margin-left: 8px;
+    
+        &:hover {
+          &.ingredientsTag {
+            @include button-styles(#3483f7, #0a68f5);
+          }
+        
+          &.applianceTag {
+            @include button-styles(#66daa4, #46d291);
+          }
+        
+          &.ustensilsTag {
+            @include button-styles(#ed6454, #e9422f);
+          }
+        }
+      }
+    
+      .btn-close {
+        font-size: 0.6em;
+        line-height: 1;
+        color: #FFFFFF;
+      }
+    }
+
+
+    // skuska
+  
+
+  
+  

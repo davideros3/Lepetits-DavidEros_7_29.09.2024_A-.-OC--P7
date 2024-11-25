@@ -22,22 +22,31 @@
         <div class="col-6 search-box">
           <div class="search-container container">
             <i class="fa fa-search" aria-hidden="true"></i>
-            <input type="text" class="search-field" placeholder="Search an Ingredient, device, Ustensil or recipe">
+            <form>
+              
+              <input type="text" class="search-field" placeholder="Search an Ingredient, device, Ustensil or recipe" id="search">
+              
+            </form>
           </div>
         </div>
       </div>
     </div>
-  
+
+    <div class="output"><div id="outputContainer"></div></div>
+    
   <!--************************************************************************************dropdowns***************************************************************************  -->
- 
+  <div class="outsideDropdownContainer">
+    <!-- Dynamically created div elements will be appended here -->
+  </div>
   <!-- Ingrediens -->
    <section class="placeOfDropdowns">
     <div class="dropdown firstButton">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"  aria-expanded="false">
+      <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"  aria-expanded="false">
           Ingrediens
+        <em class="fas fa-angle-down"></em>    
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="ingredientsDropdown">
-        <input type="text"  class="search-field" placeholder="Search an Ingredient">
+        <input type="text"  class="search-fieldIngrediens" placeholder="Search an Ingredient">
         
           <!-- the data  -->
       </div>
@@ -51,23 +60,24 @@
           Device
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="devicesDropdown">
-        
+        <input type="text"  class="search-fieldDevices" placeholder="Search an Devices">
           <!-- the data  -->
       </div>
   </div>
    
 
-   <!-- Utensils -->
+   <!-- Ustensils -->
    
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle thridButton" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"  aria-expanded="false">
           Ustensils
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="ustensilsDropdown">
+        <input type="text"  class="search-fieldUstensils" placeholder="Search an Ustensils">
         
           <!-- the data  -->
       </div>
-  </div>
+    </div>
   </section>
 
 
@@ -81,8 +91,8 @@
 
 
 
+<!-- skuska -->
 
-    
 
 <!--  Javascript-->
   

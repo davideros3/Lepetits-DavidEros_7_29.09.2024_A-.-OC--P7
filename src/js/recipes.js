@@ -1,4 +1,4 @@
-    export const recepis = [
+    export const recipes = [
     {
         "id": 1,
         "name" : "Coconut Lemonade",
@@ -38,7 +38,7 @@
         "servings": 2,
         "ingredients": [
             {
-                "ingredient" : "Bluefin Tuna (or albacore)",
+                "ingredient" : "Bluefin Tuna",
                 "quantity" : 200,
                 "unit" : "grams"
             },
