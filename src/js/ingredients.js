@@ -1,7 +1,7 @@
 
 // This is a ingredients.js
 
-import { handleTagSelection } from "./tag";
+import { handleTagSelection } from "./main";
 
 const getIngredients = (recipes) => {
     let ingredientsSet = new Set(); // unique ingredients
@@ -17,20 +17,6 @@ const getIngredients = (recipes) => {
     return Array.from(ingredientsSet); // Transforming the set into an array of unique ingredients
 };
 
-const buildIngredientsDropdown = (recipes) => {
-    const ingredientsList = getIngredients(recipes);
-    console.log(ingredientsList);
-    const dropdownIngredients = document.getElementById('ingredientsDropdown');
 
-    ingredientsList.forEach((ingredient) => {
-        const option = document.createElement('a');
-        option.classList.add('dropdown-item');
-        option.href = '#';
-        option.textContent = ingredient;
-        option.addEventListener('click' ,  (e) => { handleTagSelection(e, "ingredient")})
-        dropdownIngredients.appendChild(option);
-    });
 
-};
-
-export {buildIngredientsDropdown};
+export {getIngredients};

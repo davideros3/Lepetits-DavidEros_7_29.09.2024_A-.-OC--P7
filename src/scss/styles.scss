@@ -54,175 +54,136 @@ $success: #7952b3;
 // Utilities
 // @import "bootstrap/scss/utilities/api";
 
-
-
 body {
   box-sizing: border-box;
   font-family: Lato;
- 
 }
-// Header 
+// Header
 
 .logo {
   width: 268px;
 }
 
 header {
-  
   display: flex;
   justify-content: center;
   margin-top: 10px;
 }
 
-
-
 // ********************************************************************************Search Bar***********************************************************************
 
-
 .search-box {
-      width: 100%;
-      background-color: rgba(255, 255, 255, .5);
-      height: 150px;
-      display: flex;
-      justify-content: center;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  border: none;
+
+  .search-container {
+    background-color: #e7e7e7;
+    border: 32px;
+    font-size: 1.5em;
+    position: relative;
+    top: 25%;
+    width: 80%;
+    height: 70px;
+    border: none;
+
+    i {
+      position: absolute;
+      display: block;
+      padding: 20px 10px;
+    }
+
+    input {
+      background-color: transparent;
+      border-width: 0px;
       border: none;
-
-      .search-container {
-          background-color: #E7E7E7;
-          border: 32px;
-          font-size: 1.5em;  
-          position: relative;
-          top: 25%;
-          width: 80%;
-          height: 70px;
-          border: none;
-        
-        i {
-          position: absolute;
-          display: block;
-          padding: 20px 10px;
-        }
-        
-        input {
-          background-color: transparent;
-          border-width: 0px;
-          border: none;
-          width: 93%;
-          padding: 15px;
-          margin-left: 40px;
-          border: none;
-          outline: none;
-        &input[type=text]:focus {
-          border: none;
-        }      
-  
-        
-        }
-          
+      width: 93%;
+      padding: 15px;
+      margin-left: 40px;
+      border: none;
+      outline: none;
+      &input[type="text"]:focus {
+        border: none;
       }
+    }
   }
-
-    
-   
-    //************************************************************************Cards ********************************************************************************  
-    .card-img-top {
-      background-color: rgb(199, 189, 189);
-      height: 10em;
-    }
-
-    .card-body {
-    display: grid;
-    grid-template-columns: auto auto ;
-    background-color: rgb(232, 232, 232);
-    
-    };
-
-   
-
-    .cardfOfrecepi {
-      display: grid;
-      grid-template-columns: auto auto auto;
-      padding: 2em 9.5em 0em 9.5em;
-      gap: 50px;
-
-      
-     
-
-    }
-
-    .card {
-     width: auto;
-     height: 22em;
-
-    }
-
-    .card-title {
-      font-size: 1em;
-    }
-    .ingredients-list {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      
-    }
-
-    .card-text {
-      overflow: hidden;
-      position: relative;
-      display: inline-block;
-      word-wrap: break-word;
-      max-height: 8em; /* (Number of lines you want visible) * (line-height) */
-      line-height: 1em;
-      text-align:justify;
-      max-width: 11em;
-      padding-left: 2em;
-      &::after {
-        content: "...";
-      }
-      
-    }
-    .cardTime {
-      padding-left: 4em;
-    }
-
-    
-
-  
-
-  
-
-    // **********************************************Dropowns***************************************************************************************************************
-    
-   
-    
-   
-    
-.dropdown:hover .dropdown-menu {
-display: block;
-
 }
-    
-  
+
+//************************************************************************Cards ********************************************************************************
+.card-img-top {
+  background-color: rgb(199, 189, 189);
+  height: 10em;
+}
+
+.card-body {
+  display: grid;
+  grid-template-columns: auto auto;
+  background-color: rgb(232, 232, 232);
+}
+
+.cardfOfrecepi {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 2em 9.5em 0em 9.5em;
+  gap: 50px;
+}
+
+.card {
+  width: 20em;
+  height: 20.5em;
+}
+
+.card-title {
+  font-size: 1em;
+}
+.ingredients-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card-text {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  word-wrap: break-word;
+  max-height: 8em; 
+  line-height: 1em;
+  text-align: justify;
+  max-width: 11em;
+  padding-left: 2em;
+  &::after {
+    content: "...";
+  }
+}
+.cardTime {
+  padding-left: 4em;
+}
+
+// **********************************************Dropowns***************************************************************************************************************
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
 
 .placeOfDropdowns {
-display: flex;
-margin-left: 9.5em;
-z-index: 1;
-white-space: nowrap;
-
+  display: flex;
+  margin-left: 9.5em;
+  z-index: 1;
+  white-space: nowrap;
 }
-    
-
 
 .search-fieldIngrediens {
-color: #E7E7E7;
-border: none;
-font-size: 1em;
-padding-left: 1em;
-border: 0;
-outline: none;
-width: auto;
-
+  color: #e7e7e7;
+  border: none;
+  font-size: 1em;
+  padding-left: 1em;
+  border: 0;
+  outline: none;
+  width: auto;
 }
 .firstButton button {
   background: #3483f7;
@@ -241,7 +202,6 @@ width: auto;
   float: left;
 }
 
-
 .firstButton button:hover em {
   transform: rotate(-180deg);
   transition: 0.5s ease-in-out;
@@ -251,15 +211,14 @@ width: auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   grid-gap: 5px;
-};
+}
 
 .firstButton .dropdown-menu {
   background-color: #0a68f5;
   color: #fff;
   width: 810px;
   float: right;
-  transition: transform .2s;
- 
+  transition: transform 0.2s;
 }
 
 .firstButton .dropdown-menu input {
@@ -281,149 +240,120 @@ width: auto;
 }
 
 .firstButton .dropdown-menu a:hover {
+  background-color: #0a68f5;
 
-  background-color:  #0a68f5;
-  
   text-shadow: 2px 2px 2px black;
 
   cursor: pointer;
 }
 
+// second button
 
+.secondButton {
+  background-color: #66daa4;
+  border: solid;
+  height: 3em;
+  width: 8em;
+  &:hover {
+    background-color: #46d291;
+    border: solid;
+  }
+}
 
+.thridButton {
+  background-color: #ed6454;
+  border: solid;
+  height: 3em;
+  width: 8em;
+  &:hover {
+    background-color: #e9422f;
+    border: solid;
+  }
+}
 
+.ingredients-list {
+  display: block;
 
+  font-size: 10px;
+}
 
+.dropdown-menu:focus {
+  background-color: #333;
+}
 
+// tag button
 
+.output {
+  margin-left: 9.5em;
+}
 
+@mixin button-styles($bg-color, $hover-color) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 0.2em;
+  margin-right: 0.2em;
+  background-color: $bg-color;
+  color: #ffffff;
 
+  &:hover {
+    background-color: $hover-color;
+  }
+}
 
+.btn {
+  &.ingredientsTag {
+    @include button-styles(#3483f7, #0a68f5);
+  }
 
+  &.applianceTag {
+    @include button-styles(#66daa4, #46d291);
+  }
 
-// second button 
+  &.ustensilsTag {
+    @include button-styles(#ed6454, #e9422f);
+  }
 
-    .secondButton {
-      background-color: #66daa4;
-      border: solid;
-      height: 3em;
-      width: 8em;
-      &:hover {
-        background-color: #46d291;
-        border: solid;
-      }
-    }
+  .button-close-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-left: 8px;
 
-    .thridButton {
-      background-color: #ed6454;
-      border: solid;
-      height: 3em;
-      width: 8em;
-      &:hover{
-        background-color: #e9422f ;
-        border: solid;
-        
-      }
-        
-        
-      }
-
-    
-      .ingredients-list {
-        display: block;
-        
-        font-size: 10px;
-      }
-  
-
-      
-      
-    
-
-    .dropdown-menu:focus {
-      background-color: #333;
-    }
-
-    // tag button 
-
-    .output {
-      margin-left: 9.5em;
-    }
-    
-
-    @mixin button-styles($bg-color, $hover-color) {
-      display: inline-flex;
-      align-items: center;
-      justify-content: space-between;
-      border: none;
-      border-radius: 4px;
-      padding: 8px 16px;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      margin-bottom: 0.2em;
-      margin-right: 0.2em;
-      background-color: $bg-color;
-      color: #FFFFFF;
-    
-      &:hover {
-        background-color: $hover-color;
-      }
-    }
-    
-    .btn {
+    &:hover {
       &.ingredientsTag {
         @include button-styles(#3483f7, #0a68f5);
       }
-    
+
       &.applianceTag {
         @include button-styles(#66daa4, #46d291);
       }
-    
+
       &.ustensilsTag {
         @include button-styles(#ed6454, #e9422f);
       }
-    
-      .button-close-container {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        border: 2px solid #FFFFFF;
-        color: #FFFFFF;
-        font-size: 16px;
-        font-weight: bold;
-        transition: background-color 0.3s ease, color 0.3s ease;
-        margin-left: 8px;
-    
-        &:hover {
-          &.ingredientsTag {
-            @include button-styles(#3483f7, #0a68f5);
-          }
-        
-          &.applianceTag {
-            @include button-styles(#66daa4, #46d291);
-          }
-        
-          &.ustensilsTag {
-            @include button-styles(#ed6454, #e9422f);
-          }
-        }
-      }
-    
-      .btn-close {
-        font-size: 0.6em;
-        line-height: 1;
-        color: #FFFFFF;
-      }
     }
+  }
 
+  .btn-close {
+    font-size: 0.6em;
+    line-height: 1;
+    color: #ffffff;
+  }
+}
 
-    // skuska
-  
-
-  
-  

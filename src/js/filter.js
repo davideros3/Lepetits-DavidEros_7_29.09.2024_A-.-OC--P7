@@ -1,15 +1,67 @@
 import { handleTagSelection } from "./tag";
+import {getAllRecipes  } from "./recipes";
+import { displayCards } from "./cards";
 
 // filter.js
+const addFilterCriteria = (tagType, tagName, filterCriteria) => {
+    return filterCriteria[tagType].push(tagName)
+    
+};
+
+
+export { addFilterCriteria };
 
 const searchRow = document.getElementById("search");
-const searcButton = document.getElementById("search-button");
+
 
 searchRow.addEventListener("input", e => {
  filterProducts();
 });
 
-function filterProducts() {
+
+const hasUstensil = (recipe) => {
+    console.log(recipe.ustensils); // This can be used for logging or further checks
+    return recipe.ustensils; // Returns the utensils for potential use
+};
+const createdTags = [];
+const filterUstensils = () => {
+    // If there are created tags, proceed with filtering
+    if (createdTags.length > 0) {
+        productElements.forEach(productEl => {
+            const productUstensilsList = productEl.querySelector(".ustensils-list").textContent.toLowerCase();
+
+            console.log('product ustensils:', productUstensilsList);
+            
+            // Check if any ustensil tag matches 
+            const matches = createdTags.every(tag => {
+                if (tag.type === 'ustensils') {
+                    return productUstensilsList.includes(tag.name);
+                }
+                return true; // Ignore other types
+            });
+
+            productEl.style.display = matches ? "block" : "none"; // Show or hide based on matches
+        });
+    } else {
+        // If no createdTags, show all products
+        productElements.forEach(productEl => {
+            productEl.style.display = "block";
+        });
+    }
+    
+    // Optional: Collect and log all utensils from recipes
+    recipes.forEach(recipe => {
+        hasUstensil(recipe); // Log each recipe's utensils if needed
+    });
+};
+
+
+
+
+const filterProducts = () => {
+    // filterUstensils();
+
+
     // Get search term
     const searchTerm = searchRow.value.trim().toLowerCase();
 
