@@ -11,7 +11,22 @@ const getAppliances = (recipes) => {
   
     return Array.from(appliancesSet); // Transforming the set into an array of unique appliances
 };
+const filterbyDevices = (recipes, selectedDevices) => {
+  if (!selectedDevices.length) {
+    return recipes;
+  } else {
+    const results = recipes.filter(recipe => 
+      selectedDevices.every(appliances =>
+        recipe.appliance.includes(appliances)
+      )
+    );  
+    
+        return results;
+       
+  }
+  
+};
   
 
 
-  export {getAppliances};
+  export {getAppliances, filterbyDevices};

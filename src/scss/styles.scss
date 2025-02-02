@@ -79,6 +79,7 @@ header {
   display: flex;
   justify-content: center;
   border: none;
+  
 
   .search-container {
     background-color: #e7e7e7;
@@ -113,54 +114,70 @@ header {
 }
 
 //************************************************************************Cards ********************************************************************************
-.card-img-top {
-  background-color: rgb(199, 189, 189);
-  height: 10em;
-}
-
-.card-body {
-  display: grid;
-  grid-template-columns: auto auto;
-  background-color: rgb(232, 232, 232);
-}
 
 .cardfOfrecepi {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  padding: 2em 9.5em 0em 9.5em;
-  gap: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1em 9.5em;
+    gap: 15px;
 }
 
 .card {
-  width: 20em;
-  height: 20.5em;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 22.3em;
+    height: 20.5em;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card-img-top {
+    background-color: rgb(199, 189, 189);
+    height: 9em;
+    width: 100%;
+}
+
+.card-body {
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: rgb(232, 232, 232);
 }
 
 .card-title {
-  font-size: 1em;
+    font-size: 0.8em;
+    margin: 0;
 }
+
 .ingredients-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 .card-text {
-  overflow: hidden;
-  position: relative;
-  display: inline-block;
-  word-wrap: break-word;
-  max-height: 8em; 
-  line-height: 1em;
-  text-align: justify;
-  max-width: 11em;
-  padding-left: 2em;
-  &::after {
-    content: "...";
-  }
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    word-wrap: break-word;
+    max-height: 8em;
+    line-height: 1em;
+    text-align: justify;
+    max-width: 11em;
+    padding-left: 3em;
 }
+
+.card-text::after {
+    content: "...";
+}
+
 .cardTime {
-  padding-left: 4em;
+    padding-left: 5em;
+    font-size: 0.9em;
 }
 
 // **********************************************Dropowns***************************************************************************************************************
@@ -176,7 +193,18 @@ header {
   white-space: nowrap;
 }
 
-.search-fieldIngrediens {
+.search-fieldIngrediens
+ {
+  color: #e7e7e7;
+  border: none;
+  font-size: 1em;
+  padding-left: 1em;
+  border: 0;
+  outline: none;
+  width: auto;
+}
+
+.search-fieldDevices {
   color: #e7e7e7;
   border: none;
   font-size: 1em;
@@ -249,31 +277,126 @@ header {
 
 // second button
 
-.secondButton {
-  background-color: #66daa4;
+.secondButton button {
+  background-color: #66daa7;
   border: solid;
   height: 3em;
   width: 8em;
-  &:hover {
-    background-color: #46d291;
-    border: solid;
-  }
+  overflow: auto;
+  outline: none;
+  float: right;
+  transition: 0.5s ease-in-out;
+}
+.secondButton button:hover {
+  background-color: #66daa5;
+  border: solid;
+  float: left;
+}
+.secondButton button:hover em {
+  transform: rotate(-180deg);
+  transition: 0.5s ease-in-out;
+}
+.secondButton .dropdown-menu:hover {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-gap: 5px;
+}
+.secondButton .dropdown-menu {
+  background-color: #66daa5;
+  color: #fff;
+  width: 160px;
+  float: right;
+  transition: transform 0.2s;
 }
 
-.thridButton {
+.secondButton .dropdown-menu input {
+  background-color: #66daa5;
+  color: #ffff;
+  text-decoration: none;
+  border: none;
+}
+
+.secondButton .dropdown-menu a {
+  color: #fff;
+  font-size: 0.7em;
+  max-width: 10px;
+  text-overflow: ellipsis;
+}
+
+.secondButton .dropdown-menu input::placeholder {
+  color: #fff;
+}
+
+.secondButton .dropdown-menu a:hover {
+  background-color: #66daa5;
+
+  text-shadow: 2px 2px 2px black;
+
+  cursor: pointer;
+}
+
+.thirdButton button {
   background-color: #ed6454;
   border: solid;
   height: 3em;
   width: 8em;
-  &:hover {
-    background-color: #e9422f;
-    border: solid;
-  }
+  overflow: auto;
+  outline: none;
+  float: right;
+  transition: 0.5s ease-in-out;
+
+}
+.thirdButton button:hover {
+  background-color: #ed6458;
+  border: solid;
+  float: left;
+}
+
+.thirdButton button:hover em {
+  transform: rotate(-180deg);
+  transition: 0.5s ease-in-out;
+}
+
+.thirdButton .dropdown-menu:hover {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-gap: 5px;
+}
+
+.thirdButton .dropdown-menu {
+  background-color: #ed6455;
+  color: #fff;
+  width: 410px;
+  float: right;
+  transition: transform 0.2s;
+}
+
+.thirdButton .dropdown-menu input {
+  background-color: #ed6458;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+}
+
+.thirdButton .dropdown-menu a {
+  color: #fff;
+  font-size: 0.7em;
+  max-width: 10px;
+  text-overflow: ellipsis;
+}
+
+.thirdButton .dropdown-menu input::placeholder {
+  color: #fff;
+}
+
+.thirdButton .dropdown-menu a:hover {
+  background-color: #ed6458;
+  text-shadow: 2px 2px 2px black;
+  cursor: pointer;
 }
 
 .ingredients-list {
   display: block;
-
   font-size: 10px;
 }
 
@@ -357,3 +480,105 @@ header {
   }
 }
 
+
+// blahblahblah______________________________________________________________________________________
+
+.tag {
+  margin: 0px 60px;
+  overflow: hidden;
+  border-radius: 5px;
+  display: inline-block;
+  white-space: nowrap;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+}
+.tag .dropdown {
+  float: left;
+  overflow: hidden;
+  font-size: 16px;
+  margin: 20px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  width: auto;
+  min-height: 66px;
+}
+.tag .dropdown .dropdown-button {
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  padding: 14px 16px;
+  background-color: inherit;
+  width: 95%;
+  height: 65px;
+  color: white;
+  cursor: pointer;
+}
+.tag .dropdown .dropdown-button::-webkit-input-placeholder {
+  color: white;
+}
+.tag .dropdown:hover em {
+  transform: rotate(-180deg);
+  transition: 0.5s ease-in-out;
+}
+.tag .dropdown:hover .row {
+  opacity: 1;
+  width: auto;
+}
+.tag .dropdown:hover .row .col {
+  height: auto;
+  padding: 15px;
+  opacity: 1;
+  transition: 0.5s ease-in-out;
+  transform-style: preserve-3d;
+}
+.tag .dropdown em {
+  position: absolute;
+  margin: 23px 0 0 -10px;
+  color: white;
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+}
+.tag .dropdown .row {
+  margin-top: -30px;
+  opacity: 0;
+  width: min-content;
+}
+.tag .dropdown .row .col {
+  float: left;
+  width: 33.33%;
+  list-style-type: none;
+  display: flex;
+  flex-flow: column nowrap;
+  transition: 0.5s ease-in-out;
+  transform-style: preserve-3d;
+  height: 0px;
+  padding: 0px;
+  opacity: 0;
+}
+.tag .dropdown .row .col li {
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: left;
+}
+.tag .dropdown .row .col li:hover {
+  font-weight: bolder;
+  text-shadow: 2px 2px 2px black;
+  cursor: pointer;
+}
+
+#ingredients {
+  background-color: #3282f7;
+}
+
+#appareils {
+  background-color: #68d9a4;
+}
+
+#ustensiles {
+  background-color: #ed6454;
+}

@@ -7,116 +7,123 @@ import { getAllRecipes } from "./recipes.js";
 import { getIngredients } from "./ingredients.js";
 import { getAppliances } from "./devices.js";
 import { displayCards } from "./cards.js";
-import { filterProducts } from "./filter.js";
+import { filterRecipes } from "./filter.js";
 import { getUstensils } from "./ustensils.js";
-import { addTagButton } from "./tag.js";
 
-const createdTags = [];
+const addTagButton = (tagName, type) => {
+  // Create a new button element
+  const newTag = document.createElement("button");
+  newTag.textContent = tagName;
 
+  // Add the appropriate class based on the type
+  switch (type) {
+    case "ingredient":
+      newTag.classList.add("btn", "ingredientsTag");
+      break;
+    case "ustensils":
+      newTag.classList.add("btn", "ustensilsTag");
+      break;
+    case "appliance":
+      newTag.classList.add("btn", "applianceTag");
+      break;
+    default:
+      newTag.classList.add("btn"); 
+      break;
+  }
 
+  // Add close functionality
+  creatingTagsClose(newTag, tagName, type);
 
-const updateFilterCriteria = (tagName, type) => {
-    switch (type) {
-        case "ingredient":
-            if (!filterCriteria.ingredients.includes(tagName)) {
-                filterCriteria.ingredients.push(tagName);
-            }
-            break;
-        case "ustensils":
-            if (!filterCriteria.ustensils.includes(tagName)) {
-                filterCriteria.ustensils.push(tagName);
-            }
-            break;
-        case "appliance":
-            if (!filterCriteria.devices.includes(tagName)) {
-                filterCriteria.devices.push(tagName);
-            }
-            break;
-        default:
-            
-            break;
-    }
-    // console.log(filterCriteria);
+  // Append the new tag to the output container
+  document.getElementById("outputContainer").appendChild(newTag);
 };
 
-export {updateFilterCriteria};
-const filterbyIngredients = (recipes, selectedIngredients) => {
-  if (!selectedIngredients.length) {
-      return recipes; // Return all recipes if no ingredients are selected
-  } else {
-      const results = recipes.filter(recipe =>
-          selectedIngredients.every(ingredient =>
-              recipe.ingredients.some(recipeIngredient => recipeIngredient.ingredient === ingredient)
-          )
+const creatingTagsClose = (newTag, tagName, type) => {
+  // Create a close (X) button
+  const closeButtonSpot = document.createElement("span");
+  closeButtonSpot.classList.add("button-close-container");
+
+  const closeButton = document.createElement("button");
+  closeButton.classList.add("btn-close", "button-close");
+  closeButton.type = "button";
+  closeButton.setAttribute("aria-label", "Close");
+  closeButton.addEventListener("click", (e) => {
+    removeTag(newTag, tagName, type);
+  });
+
+  closeButtonSpot.appendChild(closeButton);
+  newTag.appendChild(closeButtonSpot);
+};
+
+const removeTag = (newTag, tagName, type) => {
+  newTag.remove(); 
+ 
+  removeFilterCriteria(tagName, type);
+};
+
+const removeFilterCriteria = (tagName, type) => {
+  switch (type) {
+    case "ingredient":
+      filterCriteria.ingredients = filterCriteria.ingredients.filter(
+        (ingredient) => ingredient !== tagName
       );
-      
-      return results; 
+      break;
+    case "ustensils":
+      filterCriteria.ustensils = filterCriteria.ustensils.filter(
+        (ustensil) => ustensil !== tagName
+      );
+      break;
+    case "appliance":
+      filterCriteria.devices = filterCriteria.devices.filter(
+        (device) => device !== tagName
+      );
+      break;
+    default:
+      break;
   }
-};
-
-const filterbyDevices = (recipes, selectedDevices) => {
-  if (!selectedDevices.length) {
-    return recipes;
-  } else {
-    const results = recipes.filter(recipe => 
-      selectedDevices.every(appliances =>
-        recipe.appliance.includes(appliances)
-      )
-    );  
-    
-        return results;
-       
-  }
-  
-};
-
-const filterByUstensils = (recipes, selectedUstensils) => {
-  if (!selectedUstensils.length) {
-    return recipes;
-  } else {
-    const results = recipes.filter(recipe =>
-      selectedUstensils.every(ustensil =>
-          recipe.ustensils.includes(ustensil)
-      )
-    );
-
-
-  return results;
-  };
-};
-
-
-const filterRecipes = () => {
-  let results = allRecipes;
-  results = filterByUstensils(results, filterCriteria.ustensils);
-  results = filterbyIngredients(results, filterCriteria.ingredients);
-  results = filterbyDevices(results, filterCriteria.devices);
-  
-
-
-  
-  return results;
-};
 
  
+  const results = filterRecipes(filterCriteria);
+  displayCards(results);
+};
 
-const handleTagSelection = (e, type) => {
-    const tagName = e.target.textContent;
-    
+const addFilterCriteria = (tagName, type) => {
+  let newtags = false;
+  switch (type) {
+    case "ingredient":
+      if (!filterCriteria.ingredients.includes(tagName)) {
+        newtags = true;
+        filterCriteria.ingredients.push(tagName);
+      }
+      break;
+    case "ustensils":
+      if (!filterCriteria.ustensils.includes(tagName)) {
+        newtags = true;
+        filterCriteria.ustensils.push(tagName);
+      }
+      break;
+    case "appliance":
+      if (!filterCriteria.devices.includes(tagName)) {
+        newtags = true;
+        filterCriteria.devices.push(tagName);
+      }
+      break;
+    default:
+      break;
+  }
+  if (newtags) {
+    addTagButton(tagName, type);
+  }
+};
 
-    if (!createdTags.some(tag => tag.name === tagName && tag.type === type)) {
-        createdTags.push({ name: tagName, type });
-        // console.log(createdTags); 
 
-        // Update filter criteria
-        addTagButton(tagName, type);
-        updateFilterCriteria(tagName, type);
-        const filteredRecipes = filterRecipes();
-        displayCards(filteredRecipes);
-        
-    } else {
-      
-    }
+
+const handleTagSelection = (e, type, filterCriteria) => {
+  const tagName = e.target.textContent;
+  addFilterCriteria(tagName, type);
+  const results = filterRecipes(filterCriteria);
+
+  displayCards(results);
 };
 
 const buildUstensilsDropdown = (recipes) => {
@@ -129,7 +136,7 @@ const buildUstensilsDropdown = (recipes) => {
     option.href = "#";
     option.textContent = ustensil;
     option.addEventListener("click", (e) => {
-      handleTagSelection(e, "ustensils");
+      handleTagSelection(e, "ustensils", filterCriteria);
     });
     dropdownUstensils.appendChild(option);
   });
@@ -139,14 +146,13 @@ const buildIngredientsDropdown = (recipes) => {
   const ingredientsList = getIngredients(recipes);
   console.log(ingredientsList);
   const dropdownIngredients = document.getElementById("ingredientsDropdown");
-
   ingredientsList.forEach((ingredient) => {
     const option = document.createElement("a");
     option.classList.add("dropdown-item");
     option.href = "#";
     option.textContent = ingredient;
     option.addEventListener("click", (e) => {
-      handleTagSelection(e, "ingredient");
+      handleTagSelection(e, "ingredient", filterCriteria);
     });
     dropdownIngredients.appendChild(option);
   });
@@ -156,20 +162,19 @@ const buildAppliancedropdown = (recipes) => {
   const appliancesList = getAppliances(recipes);
   const dropdownAppliances = document.getElementById("devicesDropdown");
   console.log(appliancesList);
-
   appliancesList.forEach((appliance) => {
     const option = document.createElement("a");
     option.classList.add("dropdown-item");
     option.href = "#";
     option.textContent = appliance;
     option.addEventListener("click", (e) => {
-      handleTagSelection(e, "appliance");
+      handleTagSelection(e, "appliance", filterCriteria);
     });
     dropdownAppliances.appendChild(option);
   });
 };
 
-// Initializing the page 
+// Initializing the page
 const initializePage = (recipes) => {
   buildUstensilsDropdown(recipes);
 
@@ -179,7 +184,7 @@ const initializePage = (recipes) => {
 
   displayCards(recipes);
 };
-// Arrray to store the tags 
+// Arrray to store the tags
 
 const filterCriteria = {
   ingredients: [],
@@ -187,11 +192,8 @@ const filterCriteria = {
   devices: [],
 };
 
-
 console.log(filterCriteria);
 
 let allRecipes = getAllRecipes();
 
 initializePage(allRecipes);
-
-

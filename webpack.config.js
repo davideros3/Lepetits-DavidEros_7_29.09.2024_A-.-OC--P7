@@ -3,12 +3,17 @@
 const path = require('path')
 const autoprefixer = require('autoprefixer')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { cache } = require('webpack')
 
 module.exports = {
+  cache: false,
   mode: 'development',
   entry: './src/js/main.js',
+  ignoreWarnings: [
+    (warning) => true
+  ],
   output: {
-    filename: 'main.js',
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
   devServer: {
