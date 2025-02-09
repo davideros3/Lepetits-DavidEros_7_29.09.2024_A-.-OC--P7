@@ -9,6 +9,7 @@ import { getAppliances } from "./devices.js";
 import { displayCards } from "./cards.js";
 import { filterRecipes } from "./filter.js";
 import { getUstensils } from "./ustensils.js";
+import { filterBySearchTerm } from "./search.js";
 
 const addTagButton = (tagName, type) => {
   // Create a new button element
@@ -174,6 +175,24 @@ const buildAppliancedropdown = (recipes) => {
   });
 };
 
+const checkSearchInput = (searchTerm) => {
+  if (searchTerm.length >= 3) {
+    filterCriteria.searchTerm = searchTerm;
+    const results = filterRecipes(filterCriteria);
+
+    displayCards(results);
+  } else {
+   return;
+  }
+};
+
+
+const initilazeSearchInput = () => {
+  const searchRow = document.getElementById("search");
+  searchRow.addEventListener("input", e => {
+    checkSearchInput(e.target.value);
+  });
+};
 // Initializing the page
 const initializePage = (recipes) => {
   buildUstensilsDropdown(recipes);
@@ -181,6 +200,8 @@ const initializePage = (recipes) => {
   buildIngredientsDropdown(recipes);
 
   buildAppliancedropdown(recipes);
+
+  initilazeSearchInput(recipes);
 
   displayCards(recipes);
 };
@@ -190,6 +211,7 @@ const filterCriteria = {
   ingredients: [],
   ustensils: [],
   devices: [],
+  searchTerm: ""
 };
 
 console.log(filterCriteria);
