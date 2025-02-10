@@ -4,7 +4,7 @@
 // return results;
 // };
 
-// export { filterBySearchTerm };
+
 const filterBySearchTerm = (results, searchTerm) => {
     if (searchTerm) {
       return results.filter(recipe =>
