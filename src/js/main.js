@@ -3,6 +3,7 @@ import "../scss/styles.scss";
 
 // Import all of Bootstrap's Js
 import * as bootstrap from "bootstrap";
+
 import { getAllRecipes } from "./recipes.js";
 import { getIngredients } from "./ingredients.js";
 import { getAppliances } from "./devices.js";
@@ -28,7 +29,7 @@ const addTagButton = (tagName, type) => {
       newTag.classList.add("btn", "applianceTag");
       break;
     default:
-      newTag.classList.add("btn");
+      newTag.classList.add("btn"); 
       break;
   }
 
@@ -57,8 +58,8 @@ const creatingTagsClose = (newTag, tagName, type) => {
 };
 
 const removeTag = (newTag, tagName, type) => {
-  newTag.remove();
-
+  newTag.remove(); 
+ 
   removeFilterCriteria(tagName, type);
 };
 
@@ -83,6 +84,7 @@ const removeFilterCriteria = (tagName, type) => {
       break;
   }
 
+ 
   const results = filterRecipes(filterCriteria);
   displayCards(results);
 };
@@ -116,10 +118,14 @@ const addFilterCriteria = (tagName, type) => {
   }
 };
 
+
+
 const handleTagSelection = (e, type, filterCriteria) => {
   const tagName = e.target.textContent;
   addFilterCriteria(tagName, type);
-  filterRecipes(filterCriteria);
+  const results = filterRecipes(filterCriteria);
+
+  displayCards(results);
 };
 
 const buildUstensilsDropdown = (recipes) => {
@@ -173,17 +179,19 @@ const buildAppliancedropdown = (recipes) => {
 const checkSearchInput = (searchTerm) => {
   if (searchTerm.length >= 3) {
     filterCriteria.searchTerm = searchTerm;
-    
   } else {
     filterCriteria.searchTerm = "";
-   
   }
-  filterRecipes(filterCriteria);
+
+  // Re-filter and display results (either filtered or all recipes)
+  const results = filterRecipes(filterCriteria);
+  displayCards(results);
 };
+
 
 const initilazeSearchInput = () => {
   const searchRow = document.getElementById("search");
-  searchRow.addEventListener("input", (e) => {
+  searchRow.addEventListener("input", e => {
     checkSearchInput(e.target.value);
   });
 };
@@ -205,7 +213,7 @@ const filterCriteria = {
   ingredients: [],
   ustensils: [],
   devices: [],
-  searchTerm: "",
+  searchTerm: ""
 };
 
 console.log(filterCriteria);
