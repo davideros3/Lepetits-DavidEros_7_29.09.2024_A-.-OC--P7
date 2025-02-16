@@ -3,17 +3,20 @@ import { filterbyDevices } from "./devices";
 import { filterbyIngredients } from "./ingredients";
 import { getAllRecipes } from "./recipes";
 import { filterBySearchTerm } from "./search";
+import { displayCards } from "./cards";
+
+
 
 const filterRecipes = (filterCriteria) => {
-  let results = getAllRecipes();
-  results = filterbyUstensils(results, filterCriteria.ustensils);
-  results = filterbyIngredients(results, filterCriteria.ingredients);
-  results = filterbyDevices(results, filterCriteria.devices);
-  results = filterBySearchTerm(results, filterCriteria.searchTerm);
-  return results;
+    let results = getAllRecipes(); 
+    results = filterbyUstensils(results, filterCriteria.ustensils);
+    results = filterbyIngredients(results, filterCriteria.ingredients);
+    results = filterbyDevices(results, filterCriteria.devices);
+    results = filterBySearchTerm(results, filterCriteria.searchTerm);
+    displayCards(results);
 };
 
-// Function to filter dropdown items based on search input
+
 const filterDropdownItems = (searchTerm) => {
   const dropdownItems = document.querySelectorAll(".dropdown-item");
 
@@ -92,4 +95,11 @@ document.body.addEventListener("mouseover", (event) => {
   }
 });
 
-export { filterRecipes };
+export {filterRecipes};
+
+
+
+
+
+
+
