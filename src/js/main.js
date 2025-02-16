@@ -119,7 +119,9 @@ const addFilterCriteria = (tagName, type) => {
 const handleTagSelection = (e, type, filterCriteria) => {
   const tagName = e.target.textContent;
   addFilterCriteria(tagName, type);
-  filterRecipes(filterCriteria);
+  const results = filterRecipes(filterCriteria);
+
+  displayCards(results);
 };
 
 const buildUstensilsDropdown = (recipes) => {
@@ -173,12 +175,13 @@ const buildAppliancedropdown = (recipes) => {
 const checkSearchInput = (searchTerm) => {
   if (searchTerm.length >= 3) {
     filterCriteria.searchTerm = searchTerm;
-    
   } else {
     filterCriteria.searchTerm = "";
-   
   }
-  filterRecipes(filterCriteria);
+
+  // Re-filter and display results (either filtered or all recipes)
+  const results = filterRecipes(filterCriteria);
+  displayCards(results);
 };
 
 const initilazeSearchInput = () => {

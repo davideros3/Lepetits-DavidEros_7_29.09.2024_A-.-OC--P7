@@ -3,7 +3,6 @@ import { filterbyDevices } from "./devices";
 import { filterbyIngredients } from "./ingredients";
 import { getAllRecipes } from "./recipes";
 import { filterBySearchTerm } from "./search";
-import { displayCards } from "./cards";
 
 
 
@@ -13,10 +12,12 @@ const filterRecipes = (filterCriteria) => {
     results = filterbyIngredients(results, filterCriteria.ingredients);
     results = filterbyDevices(results, filterCriteria.devices);
     results = filterBySearchTerm(results, filterCriteria.searchTerm);
-    displayCards(results);
+    return results;
 };
 
 
+
+// Function to filter dropdown items based on search input
 const filterDropdownItems = (searchTerm) => {
     const dropdownItems = document.querySelectorAll('.dropdown-item');
     
@@ -98,41 +99,7 @@ export {filterRecipes};
 
 
 
-// const searchFunction = () => {
-//     // filterUstensils();
 
-
-//     // Get search term
-//     const searchTerm = searchRow.value.trim().toLowerCase();
-
-//     // Get all product elements
-//     const productElements = document.querySelectorAll(".grid-container");
-
-//     // Check if the search term has at least 3 characters
-//     if (searchTerm.length >= 3) {
-//         // Loop over product elements and check for matches
-//         productElements.forEach(productEl => {
-//             const productName = productEl.querySelector(".card-title").textContent.toLowerCase();
-//             const ingredientsList = productEl.querySelector(".ingredients-list").textContent.toLowerCase();
-//             const devicesList = productEl.querySelector(".appliance-list").textContent.toLowerCase();
-//             const ustensilsList = productEl.querySelector(".ustensils-list").textContent.toLowerCase();
-            
-//             // Check if the product name includes the search term
-//             if (productName.includes(searchTerm)|| ingredientsList.includes(searchTerm) || devicesList.includes(searchTerm) || ustensilsList.includes(searchTerm)) {
-//                 productEl.style.display = "block"; // Show the product
-//             } else {
-//                 productEl.style.display = "none"; // Hide the product
-//             }
-//         });
-//     } else {
-//         // If search term is less than 3 characters, show all products
-//         productElements.forEach(productEl => {
-//             productEl.style.display = "block";
-//         });
-//     }
-// }
-
-// Function to filter dropdown items based on search input
 
 
 
