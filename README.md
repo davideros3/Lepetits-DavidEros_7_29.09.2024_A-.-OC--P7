@@ -16,3 +16,6 @@ Branches
 A performance comparison screenshot is included in the repository to showcase the efficiency differences between the two approaches.
 ![Screenshot 2025-02-09 191224](https://github.com/user-attachments/assets/0e59f32a-d261-4c0a-ba2b-50240dfc65a3)
 
+On picture below there is a flowChart of sequence of steps of each algorithm.
+
+![Untitled Diagram](https://github.com/user-attachments/assets/06c207c4-d637-4d32-a16e-0e54de36ba43)
