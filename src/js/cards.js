@@ -1,4 +1,3 @@
-// display cards.js
 const displayCards = (recipes) => {
     
     console.log(recipes); 

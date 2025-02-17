@@ -15,9 +15,6 @@ const filterRecipes = (filterCriteria) => {
     return results;
 };
 
-
-
-// Function to filter dropdown items based on search input
 const filterDropdownItems = (searchTerm) => {
     const dropdownItems = document.querySelectorAll('.dropdown-item');
     
@@ -96,10 +93,6 @@ document.body.addEventListener('mouseover', (event) => {
 });
 
 export {filterRecipes};
-
-
-
-
 
 
 
