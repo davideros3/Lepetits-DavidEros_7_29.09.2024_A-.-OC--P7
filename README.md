@@ -18,5 +18,8 @@ A performance comparison screenshot is included in the repository to showcase th
 
 On picture below there is a flowChart of sequence of steps of each algorithm.
 
-[lepetits.drawio (5).pdf](https://github.com/user-attachments/files/18851887/lepetits.drawio.5.pdf)
+![lepetits-Page-1](https://github.com/user-attachments/assets/72d4602f-c8f2-452f-bbfe-fc3ea7221677)
 
+![lepetits-Page-2](https://github.com/user-attachments/assets/4ec8a3ce-7abe-4c21-ab1f-5b13526b0c50)
+
+![lepetits-Page-3](https://github.com/user-attachments/assets/5f589192-169a-4719-b1e6-e5ce579fa715)
