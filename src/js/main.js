@@ -2,14 +2,14 @@
 import "../scss/styles.scss";
 
 // Import all of Bootstrap's Js
-import * as bootstrap from "bootstrap";
+import "bootstrap";
 import { getAllRecipes } from "./recipes.js";
 import { getIngredients } from "./ingredients.js";
 import { getAppliances } from "./devices.js";
 import { displayCards } from "./cards.js";
 import { filterRecipes } from "./filter.js";
 import { getUstensils } from "./ustensils.js";
-import { filterBySearchTerm } from "./search.js";
+
 
 const addTagButton = (tagName, type) => {
   // Create a new button element
@@ -48,7 +48,7 @@ const creatingTagsClose = (newTag, tagName, type) => {
   closeButton.classList.add("btn-close", "button-close");
   closeButton.type = "button";
   closeButton.setAttribute("aria-label", "Close");
-  closeButton.addEventListener("click", (e) => {
+  closeButton.addEventListener("click", () => {
     removeTag(newTag, tagName, type);
   });
 
