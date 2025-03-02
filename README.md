@@ -17,12 +17,8 @@ A performance comparison screenshot is included in the repository to showcase th
 ![Screenshot 2025-02-09 191224](https://github.com/user-attachments/assets/0e59f32a-d261-4c0a-ba2b-50240dfc65a3)
 
 On picture below there is a flowChart of sequence of steps of each algorithm.
+[flowchart.drawio.pdf](https://github.com/user-attachments/files/19043542/flowchart.drawio.pdf)
 
-![lepetits-Page-1](https://github.com/user-attachments/assets/72d4602f-c8f2-452f-bbfe-fc3ea7221677)
-
-![lepetits-Page-2](https://github.com/user-attachments/assets/4ec8a3ce-7abe-4c21-ab1f-5b13526b0c50)
-
-![lepetits-Page-3](https://github.com/user-attachments/assets/5f589192-169a-4719-b1e6-e5ce579fa715)
 
 This project has been validated with no errors on the W3C Validator.
 Below is the screenshot. 
