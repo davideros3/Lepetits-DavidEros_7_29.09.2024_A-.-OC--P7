@@ -3,7 +3,7 @@ const displayCards = (recipes) => {
     console.log(recipes); 
     const productsEl = document.querySelector(".cardfOfrecepi");
     productsEl.innerHTML = '';
-    recipes.map((item, index) => {
+    recipes.map((item) => {
         const productEl = document.createElement("div");
         productEl.className = "grid-container";
         productEl.style.display = "block";
